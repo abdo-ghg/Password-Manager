@@ -1,0 +1,230 @@
+Password Management System
+
+1. System Overview
+The Password Management System is a web application that helps users create, evaluate, and securely store passwords for different websites. The system provides tools for password generation, password strength checking, user authentication, and secure password storage with associated website and email information.
+The main goal is to improve user security by encouraging strong passwords and providing a secure place to store them.
+
+2. System Actors
+
+ - User 
+ A person who registers, logs in, generates passwords, checks their strength, and saves them for different websites.
+ - System 
+ Performs password strength analysis, generates secure passwords, and stores encrypted password data.
+
+3. Functional Requirements
+
+ - FR1 – User Registration
+
+The system shall allow a new user to create an account using:
+
+ Email
+ Username
+ Password
+
+  FR2 – User Authentication
+
+The system shall allow registered users to log in using their email/username and password.
+
+  FR3 – Password Strength Checker
+
+The system shall allow users to enter a password and evaluate its strength based on:
+
+ Length
+ Use of uppercase letters
+ Use of lowercase letters
+ Numbers
+ Special characters
+
+The system shall classify the password strength as:
+
+ Weak
+ Medium
+ Strong
+
+  FR4 – Password Generator
+
+The system shall generate strong random passwords based on user-selected options such as:
+
+ Password length
+ Include numbers
+ Include symbols
+ Include uppercase letters
+
+  FR5 – Save Generated Password
+
+The system shall allow users to save a generated password with the following information:
+
+ Website name
+ Email or username used for the website
+ Password
+ Password strength
+
+  FR6 – Password Management
+
+The system shall allow users to:
+
+ View saved passwords
+ Delete saved passwords
+ Update saved passwords
+
+  FR7 – Password Strength Storage
+
+The system shall store the calculated password strength for each saved password.
+
+ 4. Non-Functional Requirements
+
+  Security
+
+ Passwords must be stored encrypted in the database.
+ User authentication must be secure.
+
+  Performance
+
+ Password generation should take less than 2 seconds.
+ Password strength analysis should be instant.
+
+  Usability
+
+ The interface must be simple and easy to use.
+
+  Reliability
+
+ The system should ensure stored passwords are not lost.
+
+ 5. Use Case Diagram Actors
+
+ User
+
+ 6. Use Cases
+
+  Use Case 1 – Register Account
+
+ Actor: User
+
+ Description: 
+A user creates a new account in the system.
+
+ Precondition: 
+User does not have an account.
+
+ Main Flow: 
+
+1. User opens the registration page.
+2. User enters email, username, and password.
+3. System validates the input.
+4. System creates the account.
+5. User receives confirmation.
+
+ Postcondition: 
+User account is created.
+
+  Use Case 2 – Login
+
+ Actor: User
+
+ Description: 
+User logs into the system.
+
+ Precondition: 
+User already registered.
+
+ Main Flow: 
+
+1. User enters email/username and password.
+2. System verifies credentials.
+3. System grants access to the dashboard.
+
+ Postcondition: 
+User is authenticated.
+
+  Use Case 3 – Check Password Strength
+
+ Actor: User
+
+ Description: 
+User checks how strong a password is.
+
+ Main Flow: 
+
+1. User enters a password.
+2. System analyzes the password.
+3. System displays strength level (Weak / Medium / Strong).
+
+ Postcondition: 
+Password strength is displayed.
+
+  Use Case 4 – Generate Password
+
+ Actor: User
+
+ Description: 
+User generates a secure password.
+
+ Main Flow: 
+
+1. User selects password options (length, characters).
+2. User clicks generate.
+3. System generates a secure password.
+4. Password is displayed to the user.
+
+ Postcondition: 
+Generated password is available.
+
+  Use Case 5 – Save Password
+
+ Actor: User
+
+ Description: 
+User saves a password for a website.
+
+ Precondition: 
+User is logged in.
+
+ Main Flow: 
+
+1. User enters:
+
+   Website name
+   Email/username
+   Password
+2. System calculates password strength.
+3. User clicks save.
+4. System stores the password securely.
+
+ Postcondition: 
+Password is saved in the database.
+
+  Use Case 6 – View Saved Passwords
+
+ Actor: User
+
+ Description: 
+User views stored passwords.
+
+ Precondition: 
+User is logged in.
+
+ Main Flow: 
+
+1. User opens password list.
+2. System retrieves stored passwords.
+3. System displays website, email, and password strength.
+
+ Postcondition: 
+Passwords are displayed.
+
+  Use Case 7 – Delete Password
+
+ Actor: User
+
+ Description: 
+User deletes a saved password.
+
+ Main Flow: 
+
+1. User selects a saved password.
+2. User clicks delete.
+3. System removes the password from the database.
+
+ Postcondition: 
+Password is removed.
