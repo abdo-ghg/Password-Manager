@@ -22,3 +22,8 @@ def password_strength(score):
         return "Moderate"
     elif score == 5:
         return "Strong"
+
+
+def check_password_strength(password):
+    score = password_checker(password)
+    return password_strength(score)

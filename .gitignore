@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.venv/
+venv/
+
+# Environment files
+.env
+
+# Local app data (generated at runtime)
+Data/*.csv
+
+# IDE
+.vscode/
