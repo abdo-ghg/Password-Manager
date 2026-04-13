@@ -53,7 +53,6 @@ st.markdown("""
 
 
 def strength_bar(strength: str):
-    """Render a colored progress bar + badge for password strength."""
     levels = {"Weak": 1, "Moderate": 2, "Strong": 3}
     colors = {"Weak": "#f38ba8", "Moderate": "#fab387", "Strong": "#a6e3a1"}
     pct = levels.get(strength, 1) / 3 * 100
@@ -119,7 +118,7 @@ if st.session_state.user is None:
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# DASHBOARD
+# DASHBOARD 
 # ══════════════════════════════════════════════════════════════════════════════
 else:
     user_email = st.session_state.user["email"]

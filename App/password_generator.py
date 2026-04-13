@@ -3,15 +3,31 @@ import string
 
 
 def generate_password(length=12, numbers=True, symbols=True, uppercase=True):
-    chars = string.ascii_lowercase
+    lower_case = "abcdefghijklmnopqrstuvwxyz"
+    upper_case = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    digits = "0123456789"
+    punctuation = "!@#$%^&*()_+-=[]{}|;:,.<>?/"
+    
+    characters = lower_case
     if uppercase:
-        chars += string.ascii_uppercase
+        characters += upper_case
     if numbers:
-        chars += string.digits
+        characters += digits
     if symbols:
-        chars += string.punctuation
+        characters += punctuation  
+    
+    password = ""
+    for i in range(length):
+        password += random.choice(characters)
+    
+    return password
 
-    if not chars:
-        chars = string.ascii_lowercase
 
-    return ''.join(random.choice(chars) for _ in range(length))
+
+
+
+
+
+
+
+

@@ -9,7 +9,6 @@ PASSWORD_FIELDS = ["user_email", "website", "website_email", "password", "streng
 
 
 def _read_password_rows():
-    """Read rows from either new header-based CSV or legacy headerless CSV."""
     if not os.path.isfile(PASSWORD_FILE) or os.path.getsize(PASSWORD_FILE) == 0:
         return []
 
