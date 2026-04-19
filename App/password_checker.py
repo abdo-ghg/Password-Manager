@@ -29,9 +29,10 @@ def check_password_strength(password):
     return password_strength(score)
 
 
-x = input("Enter your password: ")
-strength = check_password_strength(x)
-print(f"Password strength: {strength}")
+if __name__ == "__main__":
+    x = input("Enter your password: ")
+    strength = check_password_strength(x)
+    print(f"Password strength: {strength}")
 
 
 

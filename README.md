@@ -167,16 +167,13 @@ Run tests:
 python -m unittest discover -s tests -q
 ```
 
-Important note:
-- The current `App/password_checker.py` contains interactive top-level input/print code, which can block automated test execution when the module is imported.
-- To make tests fully non-interactive, move that interactive snippet under:
+On Windows where `python` is not mapped in PATH, use:
 
-```python
-if __name__ == "__main__":
-		x = input("Enter your password: ")
-		strength = check_password_strength(x)
-		print(f"Password strength: {strength}")
+```powershell
+py -m unittest discover -s tests -q
 ```
+
+The test suite is non-interactive and should run cleanly in CI/CD environments.
 
 ## Deployment
 
@@ -186,6 +183,14 @@ if __name__ == "__main__":
 
 ```text
 web: streamlit run App/app.py --server.port=$PORT --server.address=0.0.0.0 --server.headless=true
+```
+
+### Python runtime pin
+
+`runtime.txt` is included to pin the deploy Python version:
+
+```text
+python-3.11.9
 ```
 
 ### Render / Railway / Heroku-like platforms
@@ -205,7 +210,7 @@ streamlit run App/app.py --server.port=$PORT --server.address=0.0.0.0 --server.h
 ### Streamlit Community Cloud
 
 - Main file path: `App/app.py`
-- Python version: 3.10+
+- Python version: 3.11 (from `runtime.txt`)
 - Requirements file: `requirements.txt`
 
 ## Security Notes
@@ -225,7 +230,6 @@ For production-grade security:
 
 ## Known Issues
 
-- `App/password_checker.py` runs interactive input at import time, which interferes with some automated workflows.
 - CSV-based local storage is not suitable for concurrent multi-user production environments.
 
 ## Future Improvements
